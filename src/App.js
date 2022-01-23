@@ -8,7 +8,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { CssBaseline } from '@mui/material';
 import Home from './pages/Home';
 import SignIn from './pages/SignIn';
-import BookCar from './pages/BookCar';
+import BookVehicle from './pages/BookVehicle';
 import Inventory from './pages/Inventory';
 import Provider from './store';
 
@@ -27,7 +27,7 @@ function App() {
           <Routes>
             <Route path='/' element={<Home />} />
             <Route path='signin' element={<SignIn />} />
-            <Route path='bookcar' element={<BookCar />} />
+            <Route path='bookvehicle' element={<BookVehicle />} />
             <Route path='inventory' element={<Inventory />} />
             <Route
               path='*'

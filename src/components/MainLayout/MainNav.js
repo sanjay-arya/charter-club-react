@@ -20,8 +20,8 @@ export default function MainNav() {
             <Button color='inherit' to='/' component={RouterLink}>
               Home
             </Button>
-            <Button color='inherit' to='/bookcar' component={RouterLink}>
-              Book Car
+            <Button color='inherit' to='/bookvehicle' component={RouterLink}>
+              Book Vehicle
             </Button>
             <Button color='inherit' to='/signin' component={RouterLink}>
               Become Dispatcher

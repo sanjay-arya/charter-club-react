@@ -1,2 +1,2 @@
 export { default as HomeSearch } from './HomeSearch';
-export { default as BookCarSearch } from './BookCarSearch';
+export { default as BookVehicleSearch } from './BookVehicleSearch';

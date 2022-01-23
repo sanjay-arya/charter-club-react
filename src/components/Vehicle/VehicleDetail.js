@@ -6,6 +6,7 @@ export default function VehicleDetail({ sx = [], vehicle, onBook }) {
       sx={[
         {
           display: 'flex',
+          flexDirection: { xs: 'column', md: 'row' }
 
         },
         ...(Array.isArray(sx) ? sx : [sx])
@@ -13,13 +14,13 @@ export default function VehicleDetail({ sx = [], vehicle, onBook }) {
     >
       <CardMedia
         component="img"
-        sx={{ width: '20%' }}
+        sx={{ width: { xs: '100%', md: '20%' } }}
         image={`/images/vehicles/${vehicle.image}`}
         alt={vehicle.title}
       />
       <CardContent sx={{ p: 1 }}>
-        <Grid container spacing={1} height='100%'>
-          <Grid item container xs={10}>
+        <Grid container spacing={1} height='100%' direction={{ xs: 'column', md: 'row' }}>
+          <Grid item container xs={10} md={9} lg={10} spacing={1}>
             <Grid item xs={12}>
               <Typography gutterBottom noWrap variant="h6">
                 {vehicle.title}
@@ -33,10 +34,75 @@ export default function VehicleDetail({ sx = [], vehicle, onBook }) {
               </Typography>
             </Grid>
 
+            <Grid item xs={6} md={3}>
+              <Typography variant="body2" sx={{ fontWeight: 'bold', textAlign: 'right' }} >
+                Body Style:
+              </Typography>
+            </Grid>
+            <Grid item xs={6} md={3}>
+              <Typography variant="body2">
+                {vehicle.body}
+              </Typography>
+            </Grid>
+
+            <Grid item xs={6} md={3}>
+              <Typography variant="body2" sx={{ fontWeight: 'bold', textAlign: 'right' }} >
+                Engine:
+              </Typography>
+            </Grid>
+            <Grid item xs={6} md={3}>
+              <Typography variant="body2">
+                {vehicle.engine}
+              </Typography>
+            </Grid>
+
+            <Grid item xs={6} md={3}>
+              <Typography variant="body2" sx={{ fontWeight: 'bold', textAlign: 'right' }} >
+                Mileage:
+              </Typography>
+            </Grid>
+            <Grid item xs={6} md={3}>
+              <Typography variant="body2">
+                {vehicle.mileage} KM
+              </Typography>
+            </Grid>
+
+            <Grid item xs={6} md={3}>
+              <Typography variant="body2" sx={{ fontWeight: 'bold', textAlign: 'right' }} >
+                Color:
+              </Typography>
+            </Grid>
+            <Grid item xs={6} md={3}>
+              <Typography variant="body2">
+                {vehicle.color}
+              </Typography>
+            </Grid>
+
+            <Grid item xs={6} md={3}>
+              <Typography variant="body2" sx={{ fontWeight: 'bold', textAlign: 'right' }} >
+                Transmission:
+              </Typography>
+            </Grid>
+            <Grid item xs={6} md={3}>
+              <Typography variant="body2">
+                {`${vehicle.gear}-speed ${vehicle.transmission}`}
+              </Typography>
+            </Grid>
+
+            <Grid item xs={6} md={3}>
+              <Typography variant="body2" sx={{ fontWeight: 'bold', textAlign: 'right' }} >
+                Specs:
+              </Typography>
+            </Grid>
+            <Grid item xs={6} md={3}>
+              <Typography variant="body2">
+                {`${vehicle.passenger}-Passenger, ${vehicle.door}-Door`}
+              </Typography>
+            </Grid>
 
           </Grid>
 
-          <Grid item container xs={2} direction='column' alignItems='center' justifyContent='center'>
+          <Grid item container xs={2} md={3} lg={2} direction='column' alignItems='center' justifyContent='center'>
             {/* <Grid item xs>
               <Chip color='primary' label={`$${vehicle.price}`} sx={{ fontWeight: 'bold' }} />
             </Grid>
@@ -50,6 +116,7 @@ export default function VehicleDetail({ sx = [], vehicle, onBook }) {
             </Grid> */}
             <Button
               variant='outlined'
+              sx={{ width: { xs: '100%', md: 'auto' } }}
               onClick={() => {
                 if (onBook && typeof onBook === 'function') {
                   onBook({ ...vehicle });
