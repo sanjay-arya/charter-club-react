@@ -1,0 +1,7 @@
+export const USER = {
+  SET: 'USER_SET',
+  ADD: 'USER_ADD',
+  UPDATE: 'USER_UPDATE',
+  REMOVE: 'USER_REMOVE',
+  CLEAR: 'USER_CLEAR'
+};
