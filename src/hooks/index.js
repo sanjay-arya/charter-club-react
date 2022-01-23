@@ -1,10 +1,10 @@
-import useCart from './useCart';
+import useBooking from './useBooking';
 import useUser from './useUser';
 import useVehicle from './useVehicle';
 import useSnack from './useSnack';
 
 export {
-  useCart,
+  useBooking,
   useUser,
   useVehicle,
   useSnack,

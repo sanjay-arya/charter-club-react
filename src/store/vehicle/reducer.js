@@ -11,7 +11,7 @@ const generateVehicles = () => {
       vehicles.push({
         ...vehicle,
         id: `${user.id}-${vehicle.id}`,
-        userId: user.id
+        ownerId: user.id
       });
   }
   return vehicles;
