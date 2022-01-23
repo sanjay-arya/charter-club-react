@@ -23,14 +23,14 @@ export default function MainNav() {
             <Button color='inherit' to='/bookcar' component={RouterLink}>
               Book Car
             </Button>
-            <Button color='inherit' to='/signup' component={RouterLink}>
+            <Button color='inherit' to='/signin' component={RouterLink}>
               Become Dispatcher
             </Button>
             <Button color='inherit' to='/inventory' component={RouterLink}>
               Inventory
             </Button>
-            <Button color='inherit' to='/order' component={RouterLink}>
-              Order
+            <Button color='inherit' to='/booking' component={RouterLink}>
+              Booking
             </Button>
             <Button color='inherit' to='/signin' component={RouterLink}>
               Sign In

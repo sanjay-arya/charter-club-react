@@ -17,7 +17,7 @@ export default function VehicleCard({ sx = [], vehicle }) {
         alt={vehicle.title}
       />
       <CardContent>
-        <Chip color="primary" label={`  $${vehicle.price}  `} />
+        <Chip color="primary" label={`$${vehicle.price}`} />
         <Typography gutterBottom noWrap variant="body1" sx={{ fontWeight: 'bold', m: 1 }}>
           {vehicle.title}
         </Typography>

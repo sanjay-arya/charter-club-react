@@ -1,26 +1,67 @@
-import { Card, CardContent, CardMedia, Typography, Chip } from "@mui/material";
+import { Card, CardContent, CardMedia, Typography, Chip, Box, Divider, Stack, Grid, Button } from "@mui/material";
 
-export default function VehicleDetail({ sx = [], vehicle }) {
+export default function VehicleDetail({ sx = [], vehicle, onBook }) {
   return (
     <Card
       sx={[
         {
-          maxWidth: 345,
+          display: 'flex',
+
         },
         ...(Array.isArray(sx) ? sx : [sx])
       ]}
     >
       <CardMedia
         component="img"
-        height="140"
+        sx={{ width: '20%' }}
         image={`/images/vehicles/${vehicle.image}`}
         alt={vehicle.title}
       />
-      <CardContent>
-        <Chip color="primary" label={`  $${vehicle.price}  `} />
-        <Typography gutterBottom noWrap variant="body1" sx={{ fontWeight: 'bold', m: 1 }}>
-          {vehicle.title}
-        </Typography>
+      <CardContent sx={{ p: 1 }}>
+        <Grid container spacing={1} height='100%'>
+          <Grid item container xs={10}>
+            <Grid item xs={12}>
+              <Typography gutterBottom noWrap variant="h6">
+                {vehicle.title}
+              </Typography>
+              <Divider />
+            </Grid>
+
+            <Grid item xs={12}>
+              <Typography variant="body2" color="text.secondary">
+                {vehicle.desc}
+              </Typography>
+            </Grid>
+
+
+          </Grid>
+
+          <Grid item container xs={2} direction='column' alignItems='center' justifyContent='center'>
+            {/* <Grid item xs>
+              <Chip color='primary' label={`$${vehicle.price}`} sx={{ fontWeight: 'bold' }} />
+            </Grid>
+            <Grid item xs>
+              <Button
+                variant='outlined'
+              >
+                Book
+                <Chip color='primary' label={`$${vehicle.price}`} sx={{ ml: 1 }} />
+              </Button>
+            </Grid> */}
+            <Button
+              variant='outlined'
+              onClick={() => {
+                if (onBook && typeof onBook === 'function') {
+                  onBook({ ...vehicle });
+                }
+              }}
+            >
+              Book
+              <Chip color='primary' label={`$${vehicle.price}`} sx={{ ml: 1 }} />
+            </Button>
+
+          </Grid>
+        </Grid>
       </CardContent>
     </Card>
   )
