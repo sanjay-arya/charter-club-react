@@ -19,7 +19,8 @@ const useBooking = () => {
     approveBooking,
     rejectBooking,
     cancelBooking,
-    completeBooking
+    completeBooking,
+    changeBooking
   } = actions;
 
   // Bind Actions
@@ -28,7 +29,8 @@ const useBooking = () => {
     approveBooking,
     rejectBooking,
     cancelBooking,
-    completeBooking
+    completeBooking,
+    changeBooking
   }, dispatch);
 
   return { booking, ...bookingActions };

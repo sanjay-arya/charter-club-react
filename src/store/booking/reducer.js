@@ -32,7 +32,7 @@ export default function bookingReducer(state = initialState, action) {
       }
     case BOOKING.REJECT:
       if (index > -1) {
-        bookingItems[index] = { ...bookingItem, status: 'reject' };
+        bookingItems[index] = { ...bookingItem, status: 'rejected' };
       }
 
       return {
@@ -41,7 +41,7 @@ export default function bookingReducer(state = initialState, action) {
       }
     case BOOKING.CANCEL:
       if (index > -1) {
-        bookingItems[index] = { ...bookingItem, status: 'cancel' };
+        bookingItems[index] = { ...bookingItem, status: 'canceled' };
       }
 
       return {
@@ -50,7 +50,16 @@ export default function bookingReducer(state = initialState, action) {
       }
     case BOOKING.COMPLETE:
       if (index > -1) {
-        bookingItems[index] = { ...bookingItem, status: 'complete' };
+        bookingItems[index] = { ...bookingItem, status: 'completed' };
+      }
+
+      return {
+        ...state,
+        bookingItems
+      }
+    case BOOKING.BOOKING_CHANGE:
+      if (index > -1) {
+        bookingItems[index] = { ...bookingItem };
       }
 
       return {

@@ -34,3 +34,10 @@ export function completeBooking(booking) {
     payload: booking
   }
 }
+
+export function changeBooking(booking) {
+  return {
+    type: BOOKING.BOOKING_CHANGE,
+    payload: booking
+  }
+}

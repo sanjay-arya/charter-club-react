@@ -39,26 +39,28 @@ export default function BookVehicle() {
   }
 
   return (
-    <MainLayout>
-      <Container maxWidth='lg' sx={{ pt: 4 }}>
-        <BookVehicleSearch onSearch={onSearch} />
+    <>
+      <MainLayout>
+        <Container maxWidth='lg' sx={{ pt: 4 }}>
+          <BookVehicleSearch onSearch={onSearch} />
 
-        <Stack spacing={2} alignItems='center' mt={2}>
-          {
-            searchVehicles.map((vehicle, i) => (
-              <VehicleDetail
-                key={i}
-                vehicle={vehicle}
-                sx={{ mt: 1 }}
-                onBook={() => {
-                  onBook(i);
-                }}
-              />
-            ))
-          }
-        </Stack>
+          <Stack spacing={2} alignItems='center' mt={2}>
+            {
+              searchVehicles.map((vehicle, i) => (
+                <VehicleDetail
+                  key={i}
+                  vehicle={vehicle}
+                  sx={{ mt: 1 }}
+                  onBook={() => {
+                    onBook(i);
+                  }}
+                />
+              ))
+            }
+          </Stack>
 
-      </Container>
-    </MainLayout>
+        </Container>
+      </MainLayout>
+    </>
   )
 };

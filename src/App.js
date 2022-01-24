@@ -11,6 +11,7 @@ import SignIn from './pages/SignIn';
 import BookVehicle from './pages/BookVehicle';
 import Inventory from './pages/Inventory';
 import Provider from './store';
+import Booking from './pages/Booking';
 
 function App() {
   const darkTheme = createTheme({
@@ -29,6 +30,7 @@ function App() {
             <Route path='signin' element={<SignIn />} />
             <Route path='bookvehicle' element={<BookVehicle />} />
             <Route path='inventory' element={<Inventory />} />
+            <Route path='booking' element={<Booking />} />
             <Route
               path='*'
               element={

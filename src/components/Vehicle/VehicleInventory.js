@@ -116,7 +116,7 @@ export default function VehicleInventory({ sx = [], vehicle }) {
                   <TextField
                     id='gear'
                     label='Gear'
-                    inputProps={{ inputMode: 'numeric', pattern: '[0-9]*' }}
+                    type='number'
                     value={updateVehicle.gear}
                     onChange={(event) => {
                       handleChange('gear', event.target.value);
@@ -127,7 +127,8 @@ export default function VehicleInventory({ sx = [], vehicle }) {
                   <TextField
                     id='passenger'
                     label='Passenger'
-                    inputProps={{ inputMode: 'numeric', pattern: '[0-9]*' }}
+                    type='number'
+                    // inputProps={{ inputMode: 'numeric', pattern: '[0-9]*' }}
                     value={updateVehicle.passenger}
                     onChange={(event) => {
                       handleChange('passenger', event.target.value);
@@ -138,7 +139,7 @@ export default function VehicleInventory({ sx = [], vehicle }) {
                   <TextField
                     id='door'
                     label='Door'
-                    inputProps={{ inputMode: 'numeric', pattern: '[0-9]*' }}
+                    type='number'
                     value={updateVehicle.door}
                     onChange={(event) => {
                       handleChange('door', event.target.value);
@@ -149,7 +150,7 @@ export default function VehicleInventory({ sx = [], vehicle }) {
                   <TextField
                     id='mileage'
                     label='Mileage'
-                    inputProps={{ inputMode: 'numeric', pattern: '[0-9]*' }}
+                    type='number'
                     value={updateVehicle.mileage}
                     onChange={(event) => {
                       handleChange('mileage', event.target.value);
@@ -160,7 +161,7 @@ export default function VehicleInventory({ sx = [], vehicle }) {
                   <TextField
                     id='price'
                     label='Price'
-                    inputProps={{ inputMode: 'numeric', pattern: '[0-9]*' }}
+                    type='number'
                     value={updateVehicle.price}
                     onChange={(event) => {
                       handleChange('price', event.target.value);

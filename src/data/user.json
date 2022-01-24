@@ -3,24 +3,28 @@
     "id": 1,
     "username": "admin1",
     "password": "admin1",
+    "displayName": "Admin 1",
     "isAdmin": true
   },
   {
     "id": 2,
     "username": "admin2",
     "password": "admin2",
+    "displayName": "Admin 2",
     "isAdmin": true
   },
   {
     "id": 3,
     "username": "user1",
     "password": "user1",
+    "displayName": "User 1",
     "isAdmin": false
   },
   {
     "id": 4,
     "username": "user2",
     "password": "user2",
+    "displayName": "User 2",
     "isAdmin": false
   }
 ]
