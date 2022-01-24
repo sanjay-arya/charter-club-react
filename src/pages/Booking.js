@@ -22,6 +22,7 @@ export default function Booking() {
         <Container maxWidth='lg' sx={{ pt: 4 }}>
           <TabContext value={selectedTab}>
             <TabList
+              variant='scrollable' allowScrollButtonsMobile
               onChange={(event, newValue) => {
                 setSelectedTab(newValue);
               }}

@@ -1,5 +1,5 @@
-import { TableContainer, Table, TableBody, TableHead, Paper, Divider, Stack } from "@mui/material";
-import { BookingCard } from ".";
+import { TableContainer, Table, TableBody, TableHead, Paper } from '@mui/material';
+import { BookingCard } from '.';
 
 export default function BookingList({ bookings }) {
 
@@ -21,12 +21,6 @@ export default function BookingList({ bookings }) {
           </TableBody>
         </Table>
       </TableContainer>
-      {/* <Stack
-        spacing={2}
-        divider={<Divider />}
-      >
-        {bookings.map(booking => <BookingCard key={booking.id} booking={booking} />)}
-      </Stack> */}
     </>
   )
 };

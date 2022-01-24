@@ -37,9 +37,10 @@ export default function HomeSearch({ sx = [], onSearch }) {
     event.preventDefault();
 
     if (onSearch && typeof onSearch === 'function') {
-      if (!isError.startDate && !isError.endDate) {
-        onSearch(data);
-      }
+      // if (!isError.startDate && !isError.endDate) {
+      //   onSearch(data);
+      // }
+      onSearch(data);
     }
   }
 

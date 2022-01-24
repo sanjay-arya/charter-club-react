@@ -38,12 +38,17 @@ export default function DrawerMenu() {
         <Button color='inherit' to='/bookvehicle' component={RouterLink}>
           Book Vehicle
         </Button>
-        <Button color='inherit' to='/inventory' component={RouterLink}>
-          Inventory
-        </Button>
-        <Button color='inherit' to='/booking' component={RouterLink}>
-          Booking
-        </Button>
+        {
+          (currentUser && currentUser.isAdmin) &&
+          <>
+            <Button color='inherit' to='/inventory' component={RouterLink}>
+              Inventory
+            </Button>
+            <Button color='inherit' to='/booking' component={RouterLink}>
+              Booking
+            </Button>
+          </>
+        }
         {currentUser ?
           <>
             <Button color='inherit' to='/profile' component={RouterLink} startIcon={<ManageAccountsIcon />}>

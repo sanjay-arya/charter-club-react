@@ -1,13 +1,16 @@
 import { Container, Stack, Typography, Divider } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 import { MainLayout, HomeSearch, VehicleCard, MyCarousel } from '../components';
 import { useVehicle } from '../hooks';
 
 export default function Home() {
 
+  let navigate = useNavigate();
   const { vehicle: { vehicleItems: vehicles } } = useVehicle();
 
   const onSearch = () => {
     console.log('Searching!!!');
+    navigate('/bookvehicle');
   };
 
   return (
