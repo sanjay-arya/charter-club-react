@@ -20,7 +20,7 @@ export default function BookingCard({ booking }) {
 
   const selectOptions = [
     { 'value': 'pending', 'label': 'pending' },
-    { 'value': 'progress', 'label': 'approve' },
+    { 'value': 'progress', 'label': 'progress' },
     { 'value': 'rejected', 'label': 'reject' },
     { 'value': 'completed', 'label': 'complete' },
     { 'value': 'canceled', 'label': 'cancel' }
@@ -46,7 +46,7 @@ export default function BookingCard({ booking }) {
                 spacing={1}
               >
                 <Typography variant='h6' sx={{ fontWeight: 'bold' }} >
-                  Sanjay Arya
+                  {booking.user.displayName}
                 </Typography>
                 <CarRentalIcon />
                 <Typography variant='h6' sx={{ fontWeight: 'medium' }}>
@@ -140,7 +140,7 @@ export default function BookingCard({ booking }) {
               />
               {
                 selectOptions.filter(({ value }) => value !== booking.status).map(({ value, label }) => (
-                  <MenuItem value={value}>
+                  <MenuItem value={value} key={value}>
                     <Chip
                       value={value}
                       label={label}

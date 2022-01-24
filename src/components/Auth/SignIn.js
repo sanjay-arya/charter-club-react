@@ -1,19 +1,19 @@
 import { LockOutlined } from "@mui/icons-material";
-import { Avatar, Box, Button, Container, CssBaseline, TextField, Typography, Grid, Link } from "@mui/material";
+import { Avatar, Box, Button, Container, TextField, Typography, Grid, Link } from "@mui/material";
 import { Link as RouterLink } from 'react-router-dom';
 
-export default function SignIn(onSubmit) {
+export default function SignIn({ onSignIn }) {
 
-  const handleSubmit = (event) => {
+  const onSubmit = (event) => {
     event.preventDefault();
     const formData = new FormData(event.currentTarget);
     const data = {
-      email: formData.get('email'),
+      username: formData.get('username'),
       password: formData.get('password'),
     };
 
-    if (onSubmit && typeof onSubmit === 'function') {
-      onSubmit(data);
+    if (onSignIn && typeof onSignIn === 'function') {
+      onSignIn(data);
     }
   };
 
@@ -33,15 +33,15 @@ export default function SignIn(onSubmit) {
         <Typography variant="h5">
           SignIn
         </Typography>
-        <Box component='form' onSubmit={handleSubmit}>
+        <Box component='form' onSubmit={onSubmit}>
           <TextField
             margin="normal"
             required
             fullWidth
-            id="email"
-            label="Email Address"
-            name="email"
-            autoComplete="email"
+            id="username"
+            label="Username"
+            name="username"
+            autoComplete="username"
             autoFocus
           />
           <TextField

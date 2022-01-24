@@ -1,10 +1,18 @@
 import { useState } from "react";
 import { Drawer, Button, IconButton } from "@mui/material";
-import { Menu as MenuIcon } from '@mui/icons-material';
-import { Link as RouterLink } from 'react-router-dom';
+import {
+  Menu as MenuIcon,
+  ManageAccounts as ManageAccountsIcon,
+  Logout as LogoutIcon
+} from '@mui/icons-material';
+import { Link as RouterLink, useNavigate } from 'react-router-dom';
+import { useUser } from "../../hooks";
 
 export default function DrawerMenu() {
+  let navigate = useNavigate();
+
   const [openDrawer, setOpenDrawer] = useState(false);
+  const { user: { currentUser }, signOut } = useUser();
 
   return (
     <>
@@ -23,26 +31,39 @@ export default function DrawerMenu() {
         anchor='right'
         open={openDrawer}
         onClose={() => { setOpenDrawer(false) }}
-        onOpen={() => { setOpenDrawer(true) }}
       >
         <Button color='inherit' to='/' component={RouterLink}>
           Home
         </Button>
-        <Button color='inherit' to='/signup' component={RouterLink}>
-          Become Dispatcher
+        <Button color='inherit' to='/bookvehicle' component={RouterLink}>
+          Book Vehicle
         </Button>
-        <Button color='inherit' to='/bookcar' component={RouterLink}>
-          Book Car
+        <Button color='inherit' to='/inventory' component={RouterLink}>
+          Inventory
         </Button>
-        <Button color='inherit' to='/about' component={RouterLink}>
-          About
+        <Button color='inherit' to='/booking' component={RouterLink}>
+          Booking
         </Button>
-        <Button color='inherit' to='/contact' component={RouterLink}>
-          Contact
-        </Button>
-        <Button color='inherit' to='/signin' component={RouterLink}>
-          Sign In
-        </Button>
+        {currentUser ?
+          <>
+            <Button color='inherit' to='/profile' component={RouterLink} startIcon={<ManageAccountsIcon />}>
+              {currentUser.displayName}
+            </Button>
+
+            <Button color='inherit' startIcon={<LogoutIcon />}
+              onClick={() => {
+                signOut();
+                navigate('/', { replace: true });
+              }}>
+              Logout
+            </Button>
+          </>
+          :
+          <Button color='inherit' to='/signin' component={RouterLink}>
+            Sign In
+          </Button>
+        }
+
       </Drawer>
     </>
   );

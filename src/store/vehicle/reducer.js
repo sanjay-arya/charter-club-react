@@ -25,7 +25,10 @@ export default function vehicleReducer(state = initialState, action) {
   const vehicleItem = action.payload;
   let vehicleItems = [...state.vehicleItems];
 
-  const index = vehicleItems.findIndex(item => item.id === vehicleItem.id);
+  let index = -1;
+  if (vehicleItem) {
+    index = vehicleItems.findIndex(item => item.id === vehicleItem.id);
+  }
 
   switch (action.type) {
     case VEHICLE.SET:

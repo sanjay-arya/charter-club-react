@@ -1,14 +1,20 @@
 import { TabContext, TabList, TabPanel } from '@mui/lab';
 import { Container, Tab } from '@mui/material';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { BookingList, MainLayout } from '../components';
-import { useBooking } from '../hooks';
+import { useBooking, useUser } from '../hooks';
 
 export default function Booking() {
 
   const { booking: { bookingItems } } = useBooking();
+  const { user: { currentUser } } = useUser();
 
-  const [selectedTab, setSelectedTab] = useState('all');
+  const [selectedTab, setSelectedTab] = useState('all')
+  const [bookings, setBookings] = useState([]);
+
+  useEffect(() => {
+    setBookings(bookingItems.filter(booking => booking.vehicle.ownerId === currentUser.id));
+  }, [bookingItems]);
 
   return (
     <>
@@ -30,37 +36,37 @@ export default function Booking() {
 
             <TabPanel value='all' sx={{ pl: 0, pr: 0 }}>
               <BookingList
-                bookings={bookingItems}
+                bookings={bookings}
               />
             </TabPanel>
 
             <TabPanel value='pending' sx={{ pl: 0, pr: 0 }}>
               <BookingList
-                bookings={bookingItems.filter(booking => booking.status === 'pending')}
+                bookings={bookings.filter(booking => booking.status === 'pending')}
               />
             </TabPanel>
 
             <TabPanel value='progress' sx={{ pl: 0, pr: 0 }}>
               <BookingList
-                bookings={bookingItems.filter(booking => booking.status === 'progress')}
+                bookings={bookings.filter(booking => booking.status === 'progress')}
               />
             </TabPanel>
 
             <TabPanel value='completed' sx={{ pl: 0, pr: 0 }}>
               <BookingList
-                bookings={bookingItems.filter(booking => booking.status === 'completed')}
+                bookings={bookings.filter(booking => booking.status === 'completed')}
               />
             </TabPanel>
 
             <TabPanel value='rejected' sx={{ pl: 0, pr: 0 }}>
               <BookingList
-                bookings={bookingItems.filter(booking => booking.status === 'rejected')}
+                bookings={bookings.filter(booking => booking.status === 'rejected')}
               />
             </TabPanel>
 
             <TabPanel value='canceled' sx={{ pl: 0, pr: 0 }}>
               <BookingList
-                bookings={bookingItems.filter(booking => booking.status === 'canceled')}
+                bookings={bookings.filter(booking => booking.status === 'canceled')}
               />
             </TabPanel>
           </TabContext>

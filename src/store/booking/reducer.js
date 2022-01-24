@@ -8,7 +8,10 @@ export default function bookingReducer(state = initialState, action) {
   const bookingItem = action.payload;
   let bookingItems = [...state.bookingItems];
 
-  const index = bookingItems.findIndex(item => item.id === bookingItem.id);
+  let index = -1;
+  if (bookingItem) {
+    index = bookingItems.findIndex(item => item.id === bookingItem.id)
+  }
 
   switch (action.type) {
     case BOOKING.NEW:

@@ -1,3 +1,3 @@
 export { default as SignIn } from './SignIn';
-export { default as RegisterMember } from './RegisterMember';
-export { default as RegisterDispatcher } from './RegisterDispatcher';
+export { default as RequireAuth } from './RequireAuth';
+export { default as AdminAuth } from './AdminAuth';

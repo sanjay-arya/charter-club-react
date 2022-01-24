@@ -15,20 +15,14 @@ const useUser = () => {
 
   // List of Actions
   const {
-    set,
-    add,
-    update,
-    remove,
-    clear
+    signIn,
+    signOut
   } = actions;
 
   // Bind Actions
   const userActions = bindActions({
-    set,
-    add,
-    update,
-    remove,
-    clear
+    signIn,
+    signOut
   }, dispatch);
 
   return { user, ...userActions };

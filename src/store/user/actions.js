@@ -1,35 +1,15 @@
 import { USER } from './types';
 
-export function set(user) {
+export function signIn(user) {
   return {
-    type: USER.SET,
+    type: USER.SIGN_IN,
     payload: user
   };
 }
 
-export function add(user) {
+export function signOut(l) {
   return {
-    type: USER.ADD,
-    payload: user
-  };
-}
-
-export function update(user) {
-  return {
-    type: USER.UPDATE,
-    payload: user
-  };
-}
-
-export function remove(user) {
-  return {
-    type: USER.REMOVE,
-    payload: user
-  }
-}
-
-export function clear() {
-  return {
-    type: USER.CLEAR
+    type: USER.SIGN_OUT,
+    payload: null
   };
 }

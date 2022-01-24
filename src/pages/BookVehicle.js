@@ -1,12 +1,14 @@
 import { Container, Stack } from "@mui/material";
 import { useState } from "react";
 import { MainLayout, BookVehicleSearch, VehicleDetail } from '../components';
-import { useBooking, useVehicle } from "../hooks";
+import { useBooking, useVehicle, useUser, useSnack } from "../hooks";
 
 export default function BookVehicle() {
 
   const { vehicle: { vehicleItems: vehicles } } = useVehicle();
+  const { user: { currentUser } } = useUser();
   const { newBooking } = useBooking();
+  const { successSnack } = useSnack();
 
   const [searchVehicles, setSearchVehicles] = useState([]);
   const [searchData, setSearchData] = useState();
@@ -32,10 +34,11 @@ export default function BookVehicle() {
     const booking = {
       location: [searchData.fromLocation, searchData.toLocation],
       date: [searchData.startDate, searchData.endDate],
-      vehicle: searchVehicles[index]
+      vehicle: searchVehicles[index],
+      user: currentUser
     }
-
     newBooking(booking);
+    successSnack(`${searchVehicles[index].title} is Successfully Booked!!!`);
   }
 
   return (
