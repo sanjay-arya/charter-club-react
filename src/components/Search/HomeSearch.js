@@ -17,7 +17,7 @@ import { DateTimePicker } from '@mui/lab';
 import AdapterDateFns from '@mui/lab/AdapterDateFns';
 import LocalizationProvider from '@mui/lab/LocalizationProvider';
 import { useState } from 'react';
-import { addDays } from 'date-fns';
+import { addHours, addDays } from 'date-fns';
 
 export default function HomeSearch({ sx = [], onSearch }) {
 
@@ -29,7 +29,7 @@ export default function HomeSearch({ sx = [], onSearch }) {
   const [data, setData] = useState({
     fromLocation: '',
     toLocation: '',
-    startDate: today,
+    startDate: addHours(today, 1),
     endDate: addDays(today, 7),
   });
 

@@ -17,14 +17,16 @@ const useUser = () => {
   const {
     signIn,
     signOut,
-    updateUser
+    updateUser,
+    themeToggle
   } = actions;
 
   // Bind Actions
   const userActions = bindActions({
     signIn,
     signOut,
-    updateUser
+    updateUser,
+    themeToggle
   }, dispatch);
 
   return { user, ...userActions };

@@ -3,6 +3,7 @@ import userJson from '../../data/user.json';
 
 export const initialState = {
   userItems: [...userJson],
+  isDarkMode: true,
   currentUser: null
 };
 
@@ -37,6 +38,12 @@ export default function userReducer(state = initialState, action) {
       return {
         ...state,
         userItems,
+      }
+    case USER.THEME_TOGGLE:
+      const { isDarkMode: mode } = state;
+      return {
+        ...state,
+        isDarkMode: !mode
       }
     default:
       return state

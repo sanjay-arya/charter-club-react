@@ -20,3 +20,10 @@ export function updateUser(user) {
     payload: user
   };
 }
+
+export function themeToggle() {
+  return {
+    type: USER.THEME_TOGGLE,
+    payload: null
+  }
+}

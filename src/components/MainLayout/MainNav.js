@@ -1,16 +1,18 @@
-import { AppBar, Toolbar, Box, Button, Typography } from '@mui/material';
+import { AppBar, Toolbar, Box, Button, Typography, IconButton } from '@mui/material';
 import { Link as RouterLink, useNavigate } from 'react-router-dom';
 import {
   ManageAccounts as ManageAccountsIcon,
-  Logout as LogoutIcon
+  Logout as LogoutIcon,
+  Brightness4 as Brightness4Icon,
+  Brightness7 as Brightness7Icon
 } from '@mui/icons-material';
 import DrawerMenu from './DrawerMenu';
-import { useUser } from "../../hooks"
+import { useUser } from '../../hooks';
 export default function MainNav() {
 
   let navigate = useNavigate();
 
-  const { user: { currentUser }, signOut } = useUser();
+  const { user: { currentUser, isDarkMode }, signOut, themeToggle } = useUser();
 
   return (
     <>
@@ -23,6 +25,14 @@ export default function MainNav() {
           >
             Charter Club
           </Typography>
+          <IconButton
+            color='inherit'
+            onClick={() => {
+              themeToggle();
+            }}
+          >
+            {isDarkMode ? <Brightness7Icon /> : <Brightness4Icon />}
+          </IconButton>
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
             <Button color='inherit' to='/' component={RouterLink}>
