@@ -1,4 +1,5 @@
 export const USER = {
   SIGN_IN: 'USER_SIGN_IN',
-  SIGN_OUT: 'USER_SIGN_OUT'
+  SIGN_OUT: 'USER_SIGN_OUT',
+  UPDATE: 'USER_UPDATE'
 };

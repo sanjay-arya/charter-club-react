@@ -16,13 +16,15 @@ const useUser = () => {
   // List of Actions
   const {
     signIn,
-    signOut
+    signOut,
+    updateUser
   } = actions;
 
   // Bind Actions
   const userActions = bindActions({
     signIn,
-    signOut
+    signOut,
+    updateUser
   }, dispatch);
 
   return { user, ...userActions };

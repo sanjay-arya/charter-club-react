@@ -13,3 +13,10 @@ export function signOut(l) {
     payload: null
   };
 }
+
+export function updateUser(user) {
+  return {
+    type: USER.UPDATE,
+    payload: user
+  };
+}
